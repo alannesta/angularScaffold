@@ -20,4 +20,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }).run(['$rootScope', function($rootScope){
+    $rootScope.flag = 'I am root';
+  }]);
