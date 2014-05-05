@@ -7,4 +7,7 @@ angular.module('angularTestApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.tools = [{title:'kaka', content:'lala'},{title:'kaka1', content:'lala1'},{title:'kaka2', content:'lala2'}]
+
   });
