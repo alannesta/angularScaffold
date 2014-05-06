@@ -2,15 +2,19 @@
 angular.module('angularTestApp').directive('popupHint', function(){
 	return {
 		templateUrl: './views/directives/popuphint.html',
-		link: function($scope, $element, $attrs) {
-			console.log($scope.$parent.flag);
-			$scope.$watch($scope.flag, function(val){
-				$element.text('new value is: '+val+', old value is: '+val);
-				//console.log(val);
+		// scope:{
+		// 	value: "@"
+		// },
+		link: function(scope, element, attrs) {
+			// console.log(scope.flag);
+			// console.log(element.text());
+			scope.$watch(attrs.flagvalue, function(val1, val2){
+				element.text('new value is: '+ val1 +', old value is: '+ val2);
+				console.log(val1+' '+val2);
 			});
-
-			$element.on('click', function(){
-				$element.hide();
+			
+			element.on('click', function(){
+				element.hide();
 			})
 		}
 	}
