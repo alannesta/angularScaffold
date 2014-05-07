@@ -1,5 +1,5 @@
 'use strict'
-angular.module('angularTestApp').directive('popupHint', function(){
+angular.module('angularTestApp').directive('popupHint',['$location', function($location){
 	return {
 		templateUrl: './views/directives/popuphint.html',
 		// scope:{
@@ -14,8 +14,9 @@ angular.module('angularTestApp').directive('popupHint', function(){
 			});
 			
 			element.on('click', function(){
-				element.hide();
+				// element.hide();
+				$location.path('/');
 			})
 		}
 	}
-})
+}])
