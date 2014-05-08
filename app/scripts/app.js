@@ -5,8 +5,9 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
-  ])
+    'ngRoute',
+    'ngAnimate'   //animation support
+  ])  
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
