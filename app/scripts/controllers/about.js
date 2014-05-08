@@ -2,7 +2,7 @@
 
 angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',function($interval, $scope){
 	$scope.flag = 0;
-
+    //console.log('ctrl init');
     // no need to call manually
 	var timer = $interval(function(){
 		toggle($scope.flag);
