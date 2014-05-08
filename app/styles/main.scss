@@ -100,3 +100,25 @@ body {
     background-color: red;
 }
 
+/*slide animation*/
+.slide-bar{
+    position: absolute;
+    transition: linear 1s;
+}
+
+.slide-bar.ng-enter{
+    opacity: 1;
+    left: -100%;
+}
+.slide-bar.ng-enter-active{
+    opacity: 1;
+    left: 0%;   /*will not work if left is not specified*/
+}
+.slide-bar.ng-leave{
+    opacity: 1;
+    left: 0%;   /*will not work if left is not specified*/
+}
+.slide-bar.ng-leave-active{
+    opacity: 1;
+    left: -100%;
+}
