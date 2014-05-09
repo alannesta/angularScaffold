@@ -122,3 +122,24 @@ body {
     opacity: 1;
     left: -100%;
 }
+
+/*loading animation*/
+.loading{
+    height:100px;
+    /*position: absolute;*/
+    background-color: green;
+    text-align: center;
+    /*transform: 2s;*/
+    transition: opacity 2s, -webkit-transform 5s;
+    opacity: 0;
+    -webkit-transform: rotateX(-90deg);
+    -webkit-transform-origin:100% 100%;
+}
+.loading.hidden{
+    /*opacity: 0;*/
+    /*transfrom: rotateY(-90deg);*/
+}
+.loading.show{
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+}

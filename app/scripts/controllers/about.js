@@ -9,6 +9,10 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',f
         $scope.animateToggle = !$scope.animateToggle
     }
 
+    $scope.pullDown = function(){
+        // $('#loading').removeClass('hidden');
+        $('#loading').addClass('show');
+    }
     // no need to call manually
 	var timer = $interval(function(){
 		toggle($scope.flag);
