@@ -126,11 +126,11 @@ body {
 /*loading animation*/
 .loading{
     height:100px;
-    /*position: absolute;*/
+    position: absolute;
     background-color: green;
     text-align: center;
     /*transform: 2s;*/
-    transition: opacity 2s, -webkit-transform 5s;
+    transition: opacity 1s, -webkit-transform 1s;
     opacity: 0;
     -webkit-transform: rotateX(-90deg);
     -webkit-transform-origin:100% 100%;
@@ -140,6 +140,33 @@ body {
     /*transfrom: rotateY(-90deg);*/
 }
 .loading.show{
+    position:relative;
     opacity: 1;
     -webkit-transform: rotateX(0deg);
+}
+
+/*state transition*/
+.homeview{
+    position: absolute;
+    /*-webkit-transition: 2.5s ease all;
+    transition: 2.5s ease all;*/
+    /*background-color: blue;*/
+    transition: linear 1s;
+}
+
+.homeview.ng-enter{
+    opacity: 1;
+    left: 100%;
+}
+.homeview.ng-enter-active{
+    opacity: 1;
+    left: 0%;   /*will not work if left is not specified*/
+}
+.homeview.ng-leave{
+    opacity: 1;
+    left: 0%;   /*will not work if left is not specified*/
+}
+.homeview.ng-leave-active{
+    opacity: 1;
+    left: -100%;
 }

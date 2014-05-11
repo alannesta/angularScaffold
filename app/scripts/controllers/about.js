@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',function($interval, $scope){
-	$scope.flag = 0;
+	console.log('about control init');
+    $scope.flag = 0;
 
     $scope.animateToggle = false;
 
