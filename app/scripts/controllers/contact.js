@@ -2,6 +2,8 @@
 
 angular.module('angularTestApp')
   .controller('contactCtrl', function ($scope) {
-      console.log('contact control init');
+
+    $scope.direction = $scope.$root.direction;
+    console.log('contact control' + $scope.direction);
 
   });

@@ -26,13 +26,30 @@ angular
         redirectTo: '/'
       });
   }).run(['$rootScope', '$route', function($rootScope, $route){
-    $rootScope.flag = 'I am root';
+    
+    $rootScope.historyLog = ['/'];
+    $rootScope.from = '';
+    $rootScope.to = '';
+    $rootScope.direction = ''   //animation direction
 
     $rootScope.$on("$routeChangeStart", function(event, next, current){
       // console.log(event);
-      // console.log(next);
-      // console.log(current);
+      // console.log(next.$$route.originalPath);
+      // console.log(current.$$route.originalPath);
       
+      $rootScope.from = current.$$route.originalPath;
+      $rootScope.to = next.$$route.originalPath;
+      console.log('to: '+$rootScope.to );
+      console.log('from: '+$rootScope.from );
+      var lastState = $rootScope.historyLog.pop()
+      if ($rootScope.to == lastState){
+        $rootScope.direction = 'right';
+      }else{
+        $rootScope.historyLog.push(lastState);  //push back the previous poped state
+        $rootScope.historyLog.push($rootScope.from);
+        $rootScope.direction = 'left';
+      }
+      console.log($rootScope.historyLog);
     })
 
 

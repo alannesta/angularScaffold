@@ -151,22 +151,39 @@ body {
     /*-webkit-transition: 2.5s ease all;
     transition: 2.5s ease all;*/
     /*background-color: blue;*/
-    transition: linear 1s;
+    transition: linear 2.5s;
 }
 
-.homeview.ng-enter{
+.homeview.left.ng-enter{
     opacity: 1;
     left: 100%;
 }
-.homeview.ng-enter-active{
+.homeview.left.ng-enter-active{
     opacity: 1;
     left: 0%;   /*will not work if left is not specified*/
 }
-.homeview.ng-leave{
+.homeview.left.ng-leave{
     opacity: 1;
     left: 0%;   /*will not work if left is not specified*/
 }
-.homeview.ng-leave-active{
+.homeview.left.ng-leave-active{
     opacity: 1;
     left: -100%;
+}
+
+.homeview.right.ng-enter{
+    opacity: 1;
+    left: -100%;
+}
+.homeview.right.ng-enter-active{
+    opacity: 1;
+    left: 0%;   /*will not work if left is not specified*/
+}
+.homeview.right.ng-leave{
+    opacity: 1;
+    left: 0%;   /*will not work if left is not specified*/
+}
+.homeview.right.ng-leave-active{
+    opacity: 1;
+    left: 100%;
 }
