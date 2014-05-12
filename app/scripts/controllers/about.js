@@ -1,12 +1,10 @@
 'use strict';
 
 angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',function($interval, $scope){
-	
+	console.log('about control init');
     $scope.flag = 0;
-    $scope.direction = $scope.$root.direction;
-    $scope.animateToggle = false;
-    console.log('about control' + $scope.direction);
-
+    // $scope.direction = $scope.$root.direction;
+    $scope.animateToggle = false; 
     $scope.animate = function(){
         $scope.animateToggle = !$scope.animateToggle
     }
@@ -34,7 +32,7 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',f
 	}
 
     $scope.$on('$destroy', function(){
-        //console.log('destroy');
+        console.log('about ctrl destroy');
         $interval.cancel(timer);
     })
     // $scope.$watch('flag', function(newVal, oldVal){

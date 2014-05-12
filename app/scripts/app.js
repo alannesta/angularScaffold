@@ -30,12 +30,12 @@ angular
     $rootScope.historyLog = ['/'];
     $rootScope.from = '';
     $rootScope.to = '';
-    $rootScope.direction = ''   //animation direction
+    $rootScope.direction = 'left'   //animation direction
 
     $rootScope.$on("$routeChangeStart", function(event, next, current){
-      // console.log(event);
-      // console.log(next.$$route.originalPath);
-      // console.log(current.$$route.originalPath);
+      //console.log('route change start triggered');
+      //console.log(current.scope);
+      //console.log(current.$$route.originalPath);
       
       $rootScope.from = current.$$route.originalPath;
       $rootScope.to = next.$$route.originalPath;
@@ -44,10 +44,17 @@ angular
       var lastState = $rootScope.historyLog.pop()
       if ($rootScope.to == lastState){
         $rootScope.direction = 'right';
+        if(!current.scope.$$phase) {
+          current.scope.$apply();
+        }
+        
       }else{
         $rootScope.historyLog.push(lastState);  //push back the previous poped state
         $rootScope.historyLog.push($rootScope.from);
         $rootScope.direction = 'left';
+        if(!current.scope.$$phase) {
+          current.scope.$apply();
+        }
       }
       console.log($rootScope.historyLog);
     })
