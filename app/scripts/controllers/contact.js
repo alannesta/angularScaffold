@@ -24,4 +24,9 @@ angular.module('angularTestApp')
         console.log('contact controller route change listener');
     })
 
+    $scope.$watch('direction', function(newVal, oldVal){
+        console.log('contact direction changed to: ' + newVal);
+        
+    })      
+
   }]);

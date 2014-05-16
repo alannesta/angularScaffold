@@ -35,7 +35,8 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',f
         console.log('about ctrl destroy');
         $interval.cancel(timer);
     })
-    // $scope.$watch('flag', function(newVal, oldVal){
-    //     console.log('newVal: '+ newVal+ " oldVal: "+oldVal);
-    // },true)
+    $scope.$watch('direction', function(newVal, oldVal){
+        console.log('aboutCtrl direction changed to: ' + newVal);
+        
+    }) 
 }])

@@ -46,11 +46,13 @@ angular
         console.log('back triggerred');
         $rootScope.direction = 'right';
         // $location.path('/about');
+
       }
 
       $rootScope.forward = function(){
         console.log('forward triggerred');
         $rootScope.direction = 'left'
+
         // $location.path('/');
       }
       // var lastState = $rootScope.historyLog.pop()
@@ -68,7 +70,7 @@ angular
       //     $rootScope.$apply();
       //   }
       // }
-      console.log($rootScope.historyLog);
+      // console.log($rootScope.historyLog);
     })
 
 
