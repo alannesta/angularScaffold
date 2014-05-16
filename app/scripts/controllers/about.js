@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',function($interval, $scope){
+angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', '$rootScope', function($interval, $scope, $rootScope){
 	console.log('about control init');
     $scope.flag = 0;
     // $scope.direction = $scope.$root.direction;
@@ -14,10 +14,10 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',f
         $('#loading').addClass('show');
     }
     // no need to call manually
-	var timer = $interval(function(){
-		toggle($scope.flag);
-		//console.log($scope.flag);
-	},2000);
+	// var timer = $interval(function(){
+	// 	toggle($scope.flag);
+	// 	//console.log($scope.flag);
+	// },2000);
     
 
     //need to call scope.$apply manually to update DOM
@@ -32,8 +32,8 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope',f
 	}
 
     $scope.$on('$destroy', function(){
-        console.log('about ctrl destroy');
-        $interval.cancel(timer);
+        console.log('contact ctrl destroy, direction: '+ $rootScope.direction);
+        //$interval.cancel(timer);
     })
     $scope.$watch('direction', function(newVal, oldVal){
         console.log('aboutCtrl direction changed to: ' + newVal);

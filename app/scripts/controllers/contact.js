@@ -17,7 +17,8 @@ angular.module('angularTestApp')
     // }
 
     $scope.$on('$destroy', function(){
-        console.log('contact ctrl destroy');
+        console.log('contact ctrl destroy, direction: '+ $rootScope.direction);
+
     })
 
     $scope.$on('$routeChangeStart', function(){

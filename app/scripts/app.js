@@ -37,39 +37,47 @@ angular
       //console.log(current.scope);
       //console.log(current.$$route.originalPath);
       
-      // $rootScope.from = current.$$route.originalPath;
-      // $rootScope.to = next.$$route.originalPath;
+      $rootScope.from = current.$$route.originalPath;
+      $rootScope.to = next.$$route.originalPath;
       // console.log('to: '+$rootScope.to );
       // console.log('from: '+$rootScope.from );
 
-      $rootScope.back = function(){
-        console.log('back triggerred');
-        $rootScope.direction = 'slide-right';
-        // $location.path('/about');
+      // $rootScope.back = function(){
+      //   console.log('back triggerred');
+      //   $rootScope.direction = 'slide-right';
+      //   // $location.path('/about');
 
-      }
-
-      $rootScope.forward = function(){
-        console.log('forward triggerred');
-        $rootScope.direction = 'slide-left'
-
-        // $location.path('/');
-      }
-      // var lastState = $rootScope.historyLog.pop()
-      // if ($rootScope.to == lastState){
-      //   $rootScope.direction = 'right';
-      //   if(!$rootScope.$$phase) {
-      //     $rootScope.$apply();
-      //   }
-        
-      // }else{
-      //   $rootScope.historyLog.push(lastState);  //push back the previous poped state
-      //   $rootScope.historyLog.push($rootScope.from);
-      //   $rootScope.direction = 'left';
-      //   if(!$rootScope.$$phase) {
-      //     $rootScope.$apply();
-      //   }
       // }
+
+      // $rootScope.forward = function(){
+      //   console.log('forward triggerred');
+      //   $rootScope.direction = 'slide-left'
+
+      //   // $location.path('/');
+      // }
+
+      //must trigger in scope so that it can change the rootScope.direction before routeChangeStart event(animation event)
+      $rootScope.navigate = function(){
+        var lastState = $rootScope.historyLog.pop()
+        if ($rootScope.to == lastState){
+          console.log('history back');
+          $rootScope.direction = 'slide-right';
+          if(!$rootScope.$$phase) {
+            $rootScope.$apply();
+          }
+
+        }else{
+          console.log('history forward');
+        $rootScope.historyLog.push(lastState);  //push back the previous poped state
+        $rootScope.historyLog.push($rootScope.from);
+        $rootScope.direction = 'slide-left';
+        if(!$rootScope.$$phase) {
+          $rootScope.$apply();
+        }
+      }
+    }
+
+      
       // console.log($rootScope.historyLog);
     })
 
