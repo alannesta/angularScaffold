@@ -30,7 +30,7 @@ angular
     $rootScope.historyLog = ['/'];
     $rootScope.from = '';
     $rootScope.to = '';
-    $rootScope.direction = 'left'   //animation direction
+    $rootScope.direction = 'slide-left'   //animation direction
 
     $rootScope.$on("$routeChangeStart", function(event, next, current){
       console.log('main route change start triggered');
@@ -44,14 +44,14 @@ angular
 
       $rootScope.back = function(){
         console.log('back triggerred');
-        $rootScope.direction = 'right';
+        $rootScope.direction = 'slide-right';
         // $location.path('/about');
 
       }
 
       $rootScope.forward = function(){
         console.log('forward triggerred');
-        $rootScope.direction = 'left'
+        $rootScope.direction = 'slide-left'
 
         // $location.path('/');
       }
