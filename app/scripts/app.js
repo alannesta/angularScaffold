@@ -22,6 +22,10 @@ angular
         templateUrl: 'views/contact.html',
         controller: 'contactCtrl'
       })
+      .when('/promise', {
+        templateUrl: 'views/promise.html',
+        controller: 'promiseCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -33,7 +37,7 @@ angular
     $rootScope.direction = 'slide-left'   //animation direction
 
     $rootScope.$on("$routeChangeStart", function(event, next, current){
-      console.log('main route change start triggered');
+      //console.log('main route change start triggered');
       //console.log(current.scope);
       //console.log(current.$$route.originalPath);
       
@@ -60,7 +64,7 @@ angular
       $rootScope.navigate = function(){
         var lastState = $rootScope.historyLog.pop()
         if ($rootScope.to == lastState){
-          console.log('history back');
+          //console.log('history back');
           $rootScope.direction = 'slide-right';
           if(!$rootScope.$$phase) {
             $rootScope.$apply();
