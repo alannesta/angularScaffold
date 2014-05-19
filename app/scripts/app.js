@@ -24,42 +24,52 @@ angular
       })
       .when('/promise', {
         templateUrl: 'views/promise.html',
-        controller: 'promiseCtrl'
+        controller: 'promiseCtrl',
+        resolve: {
+          transactions: ['dataService', function(dataService){
+            // var promise = dataService.getTransactions({pageSize:50, current:0}).then(function(data){
+            //   console.log(data);  
+            //   data.dataset.push({test:'test'});   //modify the result by extending the promise    
+            //   return data.dataset
+            // })
+
+            // return promise
+            // return dataService.getTransactions({pageSize:50, current:0})
+          }]
+        }
       })
       .otherwise({
         redirectTo: '/'
       });
-  }).run(['$rootScope', '$route', function($rootScope, $route){
+  }).run(['$rootScope', '$route', 'dataService','$http', function($rootScope, $route, dataService, $http){
     
     $rootScope.historyLog = ['/'];
     $rootScope.from = '';
     $rootScope.to = '';
     $rootScope.direction = 'slide-left'   //animation direction
 
+    var user = {
+        username: 'alannesta@sina.com',
+        password: '112233',
+        installationID: ''
+    }
+
+    console.log('root scope run triggered')
+    if (sessionStorage.getItem('session')==null){
+      dataService.login(user).then(function(data){
+        
+        sessionStorage.setItem('session', data.sessionToken);
+        // $http.defaults.headers.common.session = data.sessionToken;
+      })
+    }
+    
+
     $rootScope.$on("$routeChangeStart", function(event, next, current){
       //console.log('main route change start triggered');
-      //console.log(current.scope);
-      //console.log(current.$$route.originalPath);
       
       $rootScope.from = current.$$route.originalPath;
       $rootScope.to = next.$$route.originalPath;
-      // console.log('to: '+$rootScope.to );
-      // console.log('from: '+$rootScope.from );
-
-      // $rootScope.back = function(){
-      //   console.log('back triggerred');
-      //   $rootScope.direction = 'slide-right';
-      //   // $location.path('/about');
-
-      // }
-
-      // $rootScope.forward = function(){
-      //   console.log('forward triggerred');
-      //   $rootScope.direction = 'slide-left'
-
-      //   // $location.path('/');
-      // }
-
+      
       //must trigger in scope so that it can change the rootScope.direction before routeChangeStart event(animation event)
       $rootScope.navigate = function(){
         var lastState = $rootScope.historyLog.pop()

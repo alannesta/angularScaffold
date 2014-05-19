@@ -1,0 +1,21 @@
+<button ng-click = "refresh()">Refresh</button>
+<div class = "container1">
+    <ul ng-repeat = "transaction in transactions">
+        <li ng-model = 'transaction.firstname'>{{transaction.firstname}}</li>
+        <li ng-model = 'transaction.sex'>{{transaction.sex}}</li>
+        <li ng-model = 'transaction.transactionID'>{{transaction.transactionID}}</li>
+        <li ng-model = 'transaction.type'>{{transaction.type}}</li>
+    </ul>
+</div>
+
+<div class="container2">
+    
+
+</div>
+<!-- <ul ng-repeat = "transaction in otherTransactions">
+    <li ng-model = 'transaction.firstname'>{{transaction.firstname}}</li>
+    <li ng-model = 'transaction.sex'>{{transaction.sex}}</li>
+    <li ng-model = 'transaction.transactionID'>{{transaction.transactionID}}</li>
+    <li ng-model = 'transaction.type'>{{transaction.type}}</li>
+</ul> -->
+

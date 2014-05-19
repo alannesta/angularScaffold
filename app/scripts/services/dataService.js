@@ -6,6 +6,7 @@ angular.module('angularTestApp').service('dataService', ['$http', '$q', function
     $http.defaults.headers.common['Content-Type'] = 'application/json';
 
     function httpConnect(request){
+        $http.defaults.headers.common.session = sessionStorage.getItem('session');
         var deferred = $q.defer();
         $http(request)
         .success(function(data, status, headers, config) {
@@ -13,7 +14,7 @@ angular.module('angularTestApp').service('dataService', ['$http', '$q', function
                 console.log(data.message);
             }
             if(data.code)
-                deferred.reject(data);
+                deferred.resolve(data);
             else{
                 deferred.resolve(data.result);
             }        
