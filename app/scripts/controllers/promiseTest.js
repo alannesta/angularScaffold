@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularTestApp')
-  .controller('promiseCtrl', ['$scope', '$http', '$q','dataService', 'transactions',function ($scope, $http, $q, dataService, transactions) {
+  .controller('promiseCtrl', ['$scope', '$http', '$q','dataService', 'transactions', '$compile',function ($scope, $http, $q, dataService, transactions, $compile) {
 
     // $scope.transactions = transactions
     //console.log(transactions);
@@ -18,18 +18,20 @@ angular.module('angularTestApp')
     // })
 
     var deferred = $q.defer();
-    dataService.getTransactions({pageSize:50, current: 0}).then(function(data){
-        $scope.transactions = data.dataset;
-        data.dataset.push({test:'test'});   
-        deferred.resolve(data.dataset)
+    dataService.getTransactions({pageSize:50, current: 0}).then(function(result){
+        $scope.transactions = result.dataset;
+        result.dataset.push({test:'test'});   
+        deferred.resolve(result.dataset)
     })
 
     // $scope.otherTransactions = deferred.promise;
+    
     // console.log($scope.otherTransactions);
 
     $scope.refresh = function(){
-        $(".container2").append("<ul ng-repeat = 'transaction in transactions'><li>{{transaction.firstname}}</li></ul>");
-        $(".container2").append("<p>fuck</p>");
+        var html = "<ul ng-repeat = 'transaction in transactions'><li>{{transaction.firstname}}</li></ul>";
+        // $(".container2").append("<p>fuck</p>");
+        $(".container2").append($compile(html)($scope));
     }
 
   }]);
