@@ -22,6 +22,10 @@ angular
         templateUrl: 'views/contact.html',
         controller: 'contactCtrl'
       })
+      .when('/directivedemo', {
+        templateUrl: 'views/directive demo.html',
+        controller: 'directiveCtrl'
+      })
       .when('/promise', {
         templateUrl: 'views/promise.html',
         controller: 'promiseCtrl',
