@@ -13,6 +13,18 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
     padding: 0.2em 0;
 }
 
+.clearfloat {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
 /* Space out content a bit */
 body {
     padding-top: 20px;
@@ -20,10 +32,18 @@ body {
 }
 
 ul {
+    @extend .clearfloat;
     list-style-type: none;
+    /*float: left;*/
+    padding: 2px;
+}
+
+li{
     float: left;
     padding: 2px;
 }
+
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -212,7 +232,9 @@ ul {
 
 /*directive*/
 .staricon {
+
     /*&:before{
         content: '';
     };*/
 }
+

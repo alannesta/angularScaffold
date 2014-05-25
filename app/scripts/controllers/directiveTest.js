@@ -2,5 +2,15 @@
 
 angular.module('angularTestApp')
   .controller('directiveCtrl', ['$scope',function ($scope) {
-    $scope.stars = [1,2,3,4,5];
+    // var count = 0;
+    $scope.stars = [];
+    $scope.addStar = function(){
+        $scope.stars.push('');
+        
+    }
+    $scope.removeStar = function(){
+        
+        $scope.stars.pop();
+          
+    }
   }]);

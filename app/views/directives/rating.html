@@ -1,5 +1,7 @@
-<ul ng-repeat= "star in stars">
+<ul>
     <!-- <li class ='staricon'></li> -->
-    
-    <li class ='staricon'><i class="fa fa-camera-retro fa-lg">asdasd</i></li>
+    <li ng-repeat= "star in stars track by $index" class ='staricon'><i class="fa fa-camera-retro fa-lg"></i></li>
 </ul>
+
+<!-- <button class="btn btn-large" id= "add">Add Star!</button>
+<button class="btn btn-large" id= "remove">Remove Star!</button> -->
