@@ -71,7 +71,7 @@ angular
     $rootScope.$on("$routeChangeStart", function(event, next, current){
       //console.log('main route change start triggered');
       
-      $rootScope.from = current.$$route.originalPath;
+      $rootScope.from = current? current.$$route.originalPath: null;
       $rootScope.to = next.$$route.originalPath;
       
       //must trigger in scope so that it can change the rootScope.direction before routeChangeStart event(animation event)

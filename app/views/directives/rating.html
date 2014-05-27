@@ -1,6 +1,6 @@
 <ul>
     <!-- <li class ='staricon'></li> -->
-    <li ng-repeat= "star in stars track by $index" class ='staricon'><i class="fa fa-camera-retro fa-lg"></i></li>
+    <li ng-click="toggleStar($index)" ng-repeat= "star in [0,1,2,3,4] track by $index" class ='staricon'><i class="fa fa-star"></i></li>
 </ul>
 
 <!-- <button class="btn btn-large" id= "add">Add Star!</button>
