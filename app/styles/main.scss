@@ -1,11 +1,12 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
-@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+/*@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';*/
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+/*for outdated browser*/
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -99,7 +100,7 @@ li{
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 730px;
+        /*max-width: 730px;*/
     }
 
     /* Remove the padding we set earlier */
@@ -247,7 +248,7 @@ li{
             width: 100px;
             height: 30px;
 
-            &:nth-child(2n+1){
+            /*&:nth-child(2n+1){
                 font-size: 20px;
                 color: red;
                 background-color: green;
@@ -256,7 +257,7 @@ li{
                 font-size: 10px;
                 color:black;
                 background-color: blue;
-            }
+            }*/
         }
         
     }
