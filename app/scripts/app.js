@@ -86,12 +86,12 @@ angular
 
         }else{
           console.log('history forward');
-        $rootScope.historyLog.push(lastState);  //push back the previous poped state
-        $rootScope.historyLog.push($rootScope.from);
-        $rootScope.direction = 'slide-left';
-        if(!$rootScope.$$phase) {
-          $rootScope.$apply();
-        }
+          $rootScope.historyLog.push(lastState);  //push back the previous poped state
+          $rootScope.historyLog.push($rootScope.from);
+          $rootScope.direction = 'slide-left';
+          if(!$rootScope.$$phase) {
+            $rootScope.$apply();
+          }
       }
     }
 

@@ -29,18 +29,18 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 ul {
     @extend .clearfloat;
     list-style-type: none;
-    /*float: left;*/
     padding: 2px;
 }
 
 li{
     float: left;
-    padding: 2px;
+    margin-left: 10px;
 }
 
 
@@ -236,5 +236,29 @@ li{
     /*&:before{
         content: '';
     };*/
+}
+
+/*navigation header style*/
+.navigation{
+    /*height: 66px;*/
+    .nav-ul{
+        .nav-item{
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+
+            &:nth-child(2n+1){
+                font-size: 20px;
+                color: red;
+                background-color: green;
+            }
+            &:nth-child(2n+2){
+                font-size: 10px;
+                color:black;
+                background-color: blue;
+            }
+        }
+        
+    }
 }
 
