@@ -26,6 +26,10 @@ angular
         templateUrl: 'views/directive demo.html',
         controller: 'directiveCtrl'
       })
+      .when('/animation', {
+        templateUrl: 'views/animation_test.html',
+        controller: 'animationCtrl'
+      })
       .when('/promise', {
         templateUrl: 'views/promise.html',
         controller: 'promiseCtrl',
