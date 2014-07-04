@@ -39,7 +39,7 @@ ul {
     padding: 2px;
 }
 
-li{
+nav li{
     float: left;
     margin-left: 10px;
 }
@@ -276,3 +276,26 @@ li{
     /*top:20px;*/
 }
 
+/*contact page style*/
+.item-list{
+    display: inline-block;
+    padding: 10px 0 0;
+    width: 65%;
+    border: 1px solid black;
+    text-align: center;
+    li{ 
+        margin:0;
+        float:none;
+        border: 1px solid orange;
+        border-radius: 1px;
+        &:nth-child(2n+1){
+            background-color:green;
+        };
+    }
+}
+
+.button-container{
+    .btn{
+        width: 80px; 
+    }
+}

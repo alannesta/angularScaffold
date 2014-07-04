@@ -15,6 +15,17 @@ angular.module('angularTestApp')
     //     // $location.path('/');
     // }
 
+    $scope.items = ['ss','aa', 'cc', 'bb', 'dd', 'gg', 'ff'];
+    $scope.addElement = function(){
+        var index = (Math.random()*10000 % ($scope.items.length-1)).toFixed(0)
+        console.log(index);
+        $scope.items.push($scope.items[index]+'alan');
+    }
+    $scope.removeElement = function(){
+        var index = (Math.random()*10000 % ($scope.items.length-1)).toFixed(0);
+        $scope.items.splice(index,1);
+    }
+
     $scope.$on('$destroy', function(){
         console.log('contact ctrl destroy, direction: '+ $rootScope.direction);
 
