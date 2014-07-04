@@ -40,4 +40,15 @@ angular.module('angularTestApp')
         
     })      
 
-  }]);
+  }]).animation('flylist', function(){
+    return {
+        enter: function(element, done) {
+            
+            
+        },
+        leave: function(element, done) {
+            $(element).css('visibility', 'hidden');
+        }
+
+    }
+  });

@@ -283,6 +283,7 @@ nav li{
     width: 65%;
     border: 1px solid black;
     text-align: center;
+    -webkit-transition: visibility 2s;
     li{ 
         margin:0;
         float:none;
