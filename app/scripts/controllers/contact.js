@@ -40,14 +40,19 @@ angular.module('angularTestApp')
         
     })      
 
-  }]).animation('flylist', function(){
+  }]).animation('.fly-in-out', function(){
     return {
         enter: function(element, done) {
-            
+            var $element = $(element);
+            TweenLite.to($element, 0.5, {scale:1.5});
+            TweenLite.to($element, 0.5, {scale:1, delay:0.5});
+            done();
             
         },
         leave: function(element, done) {
-            $(element).css('visibility', 'hidden');
+            var $element = $(element);
+            TweenLite.to($element, 0.5, {scale:0.5,onComplete: done});
+            // done();
         }
 
     }
