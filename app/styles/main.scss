@@ -279,13 +279,14 @@ nav li{
 /*contact page style*/
 .item-list{
     display: inline-block;
-    padding: 10px 0 0;
+    padding: 15px 0 0;
     width: 65%;
     border: 1px solid black;
     text-align: center;
     -webkit-transition: visibility 2s;
     li{ 
         margin:0;
+        padding: 30px;
         float:none;
         border: 1px solid orange;
         border-radius: 1px;

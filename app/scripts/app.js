@@ -72,9 +72,9 @@ angular
     }
     
 
+
     $rootScope.$on("$routeChangeStart", function(event, next, current){
-      //console.log('main route change start triggered');
-      
+      //bi-direction animation block
       $rootScope.from = current? current.$$route.originalPath: null;
       $rootScope.to = next.$$route.originalPath;
       
@@ -96,12 +96,17 @@ angular
           if(!$rootScope.$$phase) {
             $rootScope.$apply();
           }
+        }
       }
-    }
+      //animation end
+      //history management
 
-      
-      // console.log($rootScope.historyLog);
     })
+    
+    window.onhashchange = logEvent;
 
-
+    function logEvent (){
+      console.log('hash change');
+    }
+    
   }]);

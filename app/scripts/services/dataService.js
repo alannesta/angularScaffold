@@ -2,7 +2,7 @@
 
 angular.module('angularTestApp').service('dataService', ['$http', '$q', function($http, $q){
     
-    var baseUrl = 'http://newdevapi.moneycloud.me/moneycloud-rest/v1.0/';
+    var baseUrl = 'http://newdevapi.moneycloud.me/moneycloud-rest/v1/';
     $http.defaults.headers.common['Content-Type'] = 'application/json';
 
     function httpConnect(request){

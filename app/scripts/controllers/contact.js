@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularTestApp')
-  .controller('contactCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+  .controller('contactCtrl', ['$scope', '$rootScope', '$location', '$anchorScroll', function ($scope, $rootScope, $location, $anchorScroll) {
     // $scope.direction = $scope.$root.direction;
     // console.log('contact control' + $scope.direction);
 
@@ -15,29 +15,30 @@ angular.module('angularTestApp')
     //     // $location.path('/');
     // }
 
-    $scope.items = ['ss','aa', 'cc', 'bb', 'dd', 'gg', 'ff'];
+    $scope.items = ['ss','aa', 'cc', 'bb', 'dd', 'gg', 'ff','ss','11', '22'];
     $scope.addElement = function(){
         var index = (Math.random()*10000 % ($scope.items.length-1)).toFixed(0)
-        console.log(index);
         $scope.items.push($scope.items[index]+'alan');
+        $location.hash($scope.items.length);
     }
     $scope.removeElement = function(){
         var index = (Math.random()*10000 % ($scope.items.length-1)).toFixed(0);
         $scope.items.splice(index,1);
+    }   
+
+    $scope.scroll = function(){
+        var $window = $(window);
+    $window.scrollTop(1000);
     }
+    
 
     $scope.$on('$destroy', function(){
-        console.log('contact ctrl destroy, direction: '+ $rootScope.direction);
-
     })
 
     $scope.$on('$routeChangeStart', function(){
-        console.log('contact controller route change listener');
     })
 
     $scope.$watch('direction', function(newVal, oldVal){
-        console.log('contact direction changed to: ' + newVal);
-        
     })      
 
   }]).animation('.fly-in-out', function(){
