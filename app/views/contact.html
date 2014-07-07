@@ -24,6 +24,7 @@
                 <button class="btn btn-large btn-success" ng-click = "addElement()">add</button>
                 <button class="btn btn-large btn-warning" ng-click = "removeElement()">remove</button>
                 <button class="btn btn-large btn-info" ng-click = "scroll()">Scroll</button>
+                <button ng-click = "scrollTo('item8')">Scroll To item8</button>
             </div>
             <ul class="item-list">
                 <li ng-repeat = "item in items track by $index" id="item{{$index}}" ng-bind = "item" class="fly-in-out"></li>
