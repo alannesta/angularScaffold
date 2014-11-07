@@ -17,14 +17,40 @@ angular.module('angularTestApp')
 
     $scope.items = ['ss','aa', 'cc', 'bb', 'dd', 'gg', 'ff','ss','11', '22'];
     $scope.addElement = function(){
-        var index = (Math.random()*10000 % ($scope.items.length-1)).toFixed(0)
-        $scope.items.push($scope.items[index]+'alan');
+        var index = getRandomIndex();
+
+        $scope.items.push(guid()+'alan');
         // $location.hash($scope.items.length);
     }
     $scope.removeElement = function(){
-        var index = (Math.random()*10000 % ($scope.items.length-1)).toFixed(0);
+        var length = $scope.items.length;
+        var index = getRandomIndex();
         $scope.items.splice(index,1);
     }   
+
+    function getRandomIndex(){
+        var length = $scope.items.length;
+        var index = Math.floor((Math.random()*length));
+        // var index = parseInt((Math.random()*length),10);
+        console.log(index+"/"+length);
+        return index;
+    }
+
+    //id generator from mass framework(no conflict garanteed?)
+    function generateID(){
+        return setTimeout("1")+"";
+    }
+
+    // Generate four random hex digits.
+    function S4() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+
+    // Generate a pseudo-GUID by concatenating random hexadecimal.(from backbone localstorage)
+    function guid() {
+       return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+    };
+
 
     $scope.scroll = function(){
         var $window = $(window);
