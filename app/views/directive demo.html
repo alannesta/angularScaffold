@@ -1,8 +1,27 @@
 <rating-widget stars="stars"></rating-widget>
 <button class="btn btn-large" ng-click = "addStar()">Add Star!</button>
 <button class="btn btn-large" ng-click = "removeStar()">Remove Star!</button>
-
+<button class="btn btn-info" ng-click = "showModal()">Show Modal</button>
 <div> Stars in controller scope will change on directive click events</div>
 <ul>
     <li ng-repeat= "star in stars track by $index" class ='staricon'><i class="fa fa-camera-retro fa-lg"></i></li>
 </ul>
+
+
+<script type="text/ng-template" id="myModalContent.html">
+	<div class="modal-header">
+		<h3 class="modal-title">I'm a modal!</h3>
+	</div>
+	<div class="modal-body">
+		<ul>
+			<li ng-repeat="item in items">
+				<a ng-click="selected.item = item">{{ item }}</a>
+			</li>
+		</ul>
+		Selected: <b>{{ selected.item }}</b>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="ok()">OK</button>
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+</script>
