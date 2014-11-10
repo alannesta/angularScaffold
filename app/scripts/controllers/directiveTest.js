@@ -3,6 +3,8 @@
 angular.module('angularTestApp')
   .controller('directiveCtrl', ['$scope', '$modal',function ($scope, $modal) {
     $scope.stars = [];
+    $scope.modalVisible = false;
+    $scope.modalText = 'Enjoy the same scope';
 
     $scope.addStar = function(){
         $scope.stars.push('');
@@ -12,6 +14,9 @@ angular.module('angularTestApp')
         $scope.stars.pop();     
     }
 
+    /*
+      Method 1: the ui.bootstrap way of show modal---> $modal service
+    */
     $scope.showModal = function(){
         var modalInstance = $modal.open({
             templateUrl: 'myModalContent.html',
@@ -46,6 +51,15 @@ angular.module('angularTestApp')
             }
         })
     }
+
+
+    /*
+      Method 2: wrap bootstrap modal in customized directive
+    */
+    $scope.bootstrapModal = function(){
+      // $("#modal-container").modal();
+      $scope.modalVisible = true;
+    } 
 
     
   }]);
