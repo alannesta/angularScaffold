@@ -61,5 +61,9 @@ angular.module('angularTestApp')
       $scope.modalVisible = true;
     } 
 
+    $scope.verify = function(){
+      console.log("verified");
+    }
+
     
   }]);
