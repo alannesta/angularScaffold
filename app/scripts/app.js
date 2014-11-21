@@ -63,14 +63,14 @@ angular
         installationID: ''
     }
 
-    console.log('root scope run triggered')
-    if (sessionStorage.getItem('session')==null){
-      dataService.login(user).then(function(data){
+    // console.log('root scope run triggered')
+    // if (sessionStorage.getItem('session')==null){
+    //   dataService.login(user).then(function(data){
         
-        sessionStorage.setItem('session', data.sessionToken);
-        // $http.defaults.headers.common.session = data.sessionToken;
-      })
-    }
+    //     sessionStorage.setItem('session', data.sessionToken);
+    //     // $http.defaults.headers.common.session = data.sessionToken;
+    //   })
+    // }
     
 
 
