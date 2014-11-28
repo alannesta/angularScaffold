@@ -7,7 +7,8 @@ angular
     'ngSanitize',
     'ngRoute',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'proteus.uiComponents'
   ])  
   .config(function ($routeProvider) {
     $routeProvider
