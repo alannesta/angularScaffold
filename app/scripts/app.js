@@ -48,6 +48,10 @@ angular
           }]
         }
       })
+      .when('/proteus', {
+        templateUrl: 'views/proteus.html',
+        controller: 'proteusUiCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
