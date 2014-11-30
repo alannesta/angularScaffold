@@ -830,11 +830,19 @@ angular
 
     return {
       restrict: 'A',
-      link: function(scope, element, attrs){
-
+      transclude: true,
+      link: function(scope, element, attrs, ctrl, transclude){
+        console.log("link function scope:");
+        console.log(scope);
         var popoverInstace = null;
 
         bindTrigger(attrs.popoverTrigger || 'click');
+
+
+        // !important
+        transclude(function(clone) {
+          element.append(clone);
+        });
 
         function bindTrigger(trigger){
           switch (trigger){
@@ -859,10 +867,13 @@ angular
           }else{
             popoverInstace = popover.create({
               //template: '<acq-toolbar type="primary" >Popover Test<acq-icon-button icon-name="cross" icon-size="2x" ng-click="close($event)"></acq-icon-button><acq-button ng-click="confirm($event)">confirm</acq-button></acq-toolbar>',
-              templateUrl: 'popover/popover.html',
+              templateUrl: attrs.popoverTemplate || 'popovercached',
               position: attrs.popoverPosition || "bottom-left",
               triggerNode: element[0],
               controller: function($scope){
+                console.log("popover controller scope:");
+                console.log($scope);
+                $scope.placeholder = 'popover scope';
                 $scope.close = function($event) {
                   $event.stopPropagation();
                   popoverInstace.close();
@@ -1009,12 +1020,9 @@ angular
           var popoverEl = angular.element(instance.element);
           var elemPosition;
           popoverEl.css({'position': 'absolute', 'top': -999, 'left': -999});  // Let it have the correct dimension
-          console.log('dimension check: height(before append to DOM): ' + popoverEl.prop('offsetHeight')+ ', width: ' + popoverEl.prop('offsetWidth'));
-
+         
           //FIXME: CSS styling problem
           angular.element(triggerNode).after(popoverEl);
-
-          console.log('dimension check(after append to DOM): height: ' + popoverEl.prop('offsetHeight')+ ', width: ' + popoverEl.prop('offsetWidth'));
           elemPosition = position.positionElement(instance.triggerNode, instance.element, instance.position);
 
           return elemPosition;
