@@ -6,7 +6,6 @@ angular.module('angularTestApp').directive('btmodal', function(){
             
         // },
         link: function(scope, element, attrs){
-            console.log(attrs.visible);
             // add new function to the original scope(controller scope)
         	scope.showBModal = function(){
                 attrs.visible = !attrs.visible

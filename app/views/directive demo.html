@@ -2,7 +2,7 @@
 <button class="btn btn-large" ng-click = "addStar()">Add Star!</button>
 <button class="btn btn-large" ng-click = "removeStar()">Remove Star!</button>
 <button class="btn btn-info" ng-click = "showModal()">Show Modal</button>
-<!-- <button class="btn btn-warning" ng-click = "bootstrapModal()">BootStrap Modal</button> -->
+<button class="btn btn-warning" ng-click = "bootstrapModal()">BootStrap Modal</button>
 <div> Stars in controller scope will change on directive click events</div>
 <ul>
     <li ng-repeat= "star in stars track by $index" class ='staricon'><i class="fa fa-camera-retro fa-lg"></i></li>
@@ -27,9 +27,6 @@
 		</div>
 	</div>
 </div> -->
-<h4>Below is proteus ui components playground</h4>
-<div acq-popover popover-position = "top-left" popover-trigger = "hover">Popover Test</div>
-
 
 <h4>Below is a set of ui-bootstrap test</h4>
 
@@ -42,6 +39,7 @@
 	<span>Top</span>
 </button>
 
+<!-- bootstrap modal template -->
 <script type="text/ng-template" id="myModalContent.html">
 	<div class="modal-header">
 		<h3 class="modal-title">I'm a modal!</h3>

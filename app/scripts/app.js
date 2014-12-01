@@ -107,6 +107,6 @@ angular
     });
 
     // $templateCache usage, can be referred in directive
-    $templateCache.put('popovercached', "<acq-panel type=\"primary\" style=\"height: 100px; padding: 15px; background-color: #55555b\">\n  <div>Popover Test</div>\n  <acq-search-field placeholder='{{placeholder}}'></acq-search-field>\n  <div>\n    <acq-icon-button icon-name=\"cross\" icon-size=\"2x\" ng-click=\"close($event)\"></acq-icon-button>\n    <acq-button ng-click=\"confirm($event)\">confirm</acq-button>\n  </div>\n</acq-panel>\n")
+    $templateCache.put('popovercached', "<acq-panel type=\"primary\" style=\"height: 100px; padding: 15px; background-color: #55555b\">\n  <div>Popover Test</div>\n  <acq-search-field placeholder='dataset.placeholder'></acq-search-field>\n  <div>\n    <acq-icon-button icon-name=\"cross\" icon-size=\"2x\" ng-click=\"close($event)\"></acq-icon-button>\n    <acq-button ng-click=\"confirm($event)\">confirm</acq-button>\n  </div>\n</acq-panel>\n")
     
   }]);

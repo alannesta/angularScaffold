@@ -873,7 +873,9 @@ angular
               controller: function($scope){
                 console.log("popover controller scope:");
                 console.log($scope);
-                $scope.placeholder = 'popover scope';
+                $scope.dataset = {
+                  placeholder: 'popover scope'
+                };
                 $scope.close = function($event) {
                   $event.stopPropagation();
                   popoverInstace.close();
@@ -881,11 +883,16 @@ angular
                 };
                 $scope.confirm = function($event){
                   $event.stopPropagation();
-                  popoverInstace.confirm();
+                  popoverInstace.confirm($scope.dataset.placeholder);
                   popoverInstace = null;
                 };
               }
             });
+            popoverInstace.deferred.promise.then(function(data){
+              console.log('resolved data from search box: ');
+              console.log(data);
+            })
+        
           }
         }
 
@@ -972,7 +979,8 @@ angular
           close: function(){
             destroy(this);
           },
-          confirm: function(){
+          confirm: function(data){
+            this.deferred.resolve(data);
             destroy(this);
           }
         };
@@ -1132,14 +1140,20 @@ angular
     return {
       restrict: 'E',
       scope: {
-        placeholder: '@',
+        placeholder: '=',
         query: '=?ngModel'
       },
       templateUrl: 'search-field/search-field.html',
-      link: function link(scope) {
+      link: function link(scope, iElement, iAttrs) {
+        console.log('search field scope: ');
+        console.log(scope);
         scope.resetQuery = function() {
           scope.query = '';
         };
+        iElement.on('keyup', function(key){
+          // console.log(key);
+          scope.placeholder += key.keyCode  
+        });
       }
     };
   });
@@ -1460,6 +1474,11 @@ angular
               $scope: scope
             }, locals)
           );
+
+          console.log('the constructor created in link func: ');
+          console.log(controller);
+          console.log('the scope created in link func: ');
+          console.log(scope);
 
           if (options.controllerAs) {
             scope[options.controllerAs] = controller;
