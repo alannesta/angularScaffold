@@ -8,8 +8,9 @@ angular.module('angularTestApp').directive('ratingWidget', ['$timeout', function
             //do not bind to parent scope
             stars: '='      
         },
-        // templateUrl: './views/directives/rating.html',
-        template: '<staricon ng-repeat= "star in stars track by $index"><i class="fa fa-star"></i><span ng-bind = "star.hotel"></span></staricon>',
+        templateUrl: './views/directives/rating.html',
+        // template: '<staricon ng-repeat = "star in stars"><i class="fa fa-star"></i><span ng-bind = "star.hotel"></span></staricon>',
+        // template: '<staricon><i class="fa fa-star"></i><span ng-bind = "stars[0].hotel"></span></staricon>',
         link: function (scope, iElement, iAttrs) {
             console.log('ratingWidget link function: --->');
             console.log(iElement);
@@ -17,7 +18,7 @@ angular.module('angularTestApp').directive('ratingWidget', ['$timeout', function
             console.log(iElement.find('li').length);    // 0
             
             $timeout(function(){
-                console.log(iElement.find('li').length);       // 4
+                console.log(iElement.find('li').length);    // 4
             },100);
 
             iElement.on('click', function(){
