@@ -1,4 +1,10 @@
-<rating-widget stars="stars"></rating-widget>
+<rating-widget stars="stars">
+	<staricon ng-repeat= "star in stars track by $index">
+		<i class="fa fa-star"></i>
+		<span ng-bind = "star.hotel"></span>
+	</staricon>
+</rating-widget>
+
 <button class="btn btn-large" ng-click = "addStar()">Add Star!</button>
 <button class="btn btn-large" ng-click = "removeStar()">Remove Star!</button>
 <button class="btn btn-info" ng-click = "showModal()">Show Modal</button>

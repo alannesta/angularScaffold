@@ -3,6 +3,7 @@
 angular.module('angularTestApp').directive('ratingWidget', [function () {
     return {
         restrict: 'A,E',
+        transclude: true,
         scope: {
             //do not bind to parent scope
             stars: '='      
@@ -15,16 +16,23 @@ angular.module('angularTestApp').directive('ratingWidget', [function () {
             //     scope.stars.push('');
             //     scope.$apply();
             // })
-            scope.toggleStar = function(index){
-                // console.log(index);
-                iElement.find('li').each(function(idx){
-                    if (idx<=index){
-                        $(this).find('i').removeClass('fa-star-o').addClass('fa-star');
-                    }else{
-                        $(this).find('i').addClass('fa-star-o').removeClass('fa-star');
-                    }
-                })
-            }
+            iElement.on('click', function(){
+                console.log('click');
+                scope.stars.push('');
+                scope.$apply();
+            });
+
+            // scope.toggleStar = function(index){
+            //     // console.log(index);
+
+            //     iElement.find('li').each(function(idx){
+            //         if (idx<=index){
+            //             $(this).find('i').removeClass('fa-star-o').addClass('fa-star');
+            //         }else{
+            //             $(this).find('i').addClass('fa-star-o').removeClass('fa-star');
+            //         }
+            //     })
+            // }
             
             
         },

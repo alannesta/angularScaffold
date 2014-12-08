@@ -2,7 +2,7 @@
 
 angular.module('angularTestApp')
   .controller('directiveCtrl', ['$scope', '$modal',function ($scope, $modal) {
-    $scope.stars = [];
+    $scope.stars = [{hotel: 'hilton'}, {hotel: 'shearton'}, {hotel: 'holiday inn'}, {hotel: 'marriote'}];
     $scope.modalVisible = false;
     $scope.modalText = 'Enjoy the same scope';
 

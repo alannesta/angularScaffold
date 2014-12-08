@@ -1,7 +1,2 @@
-<ul>
-    <!-- <li class ='staricon'></li> -->
-    <li ng-click="toggleStar($index)" ng-repeat= "star in [0,1,2,3,4] track by $index" class ='staricon'><i class="fa fa-star"></i></li>
-</ul>
-
-<!-- <button class="btn btn-large" id= "add">Add Star!</button>
-<button class="btn btn-large" id= "remove">Remove Star!</button> -->
+<!-- <li ng-click="toggleStar($index)" ng-repeat= "star in stars track by $index" class ='staricon'><i class="fa fa-star"></i></li> -->
+<ul ng-transclude>This is the star widget directive</ul>
