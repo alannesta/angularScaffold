@@ -6,9 +6,6 @@ angular.module('angularTestApp')
     $scope.modalVisible = false;
     $scope.modalText = 'Enjoy the same scope';
 
-    console.log('directive ctrl scope');
-    console.log($scope);
-
     $scope.addStar = function(){
         $scope.stars.push('');
         

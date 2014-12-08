@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('angularTestApp').directive('ratingWidget', [function () {
+angular.module('angularTestApp').directive('ratingWidget', ['$timeout', function ($timeout) {
     return {
         restrict: 'A,E',
         transclude: true,
@@ -8,19 +8,24 @@ angular.module('angularTestApp').directive('ratingWidget', [function () {
             //do not bind to parent scope
             stars: '='      
         },
-        templateUrl: './views/directives/rating.html',
+        // templateUrl: './views/directives/rating.html',
+        template: '<staricon ng-repeat= "star in stars track by $index"><i class="fa fa-star"></i><span ng-bind = "star.hotel"></span></staricon>',
         link: function (scope, iElement, iAttrs) {
-            // scope.stars = [1,2,3,4,5];
-            // $('ul').on('click', function(){
-            //     console.log('click');
-            //     scope.stars.push('');
-            //     scope.$apply();
-            // })
+            console.log('ratingWidget link function: --->');
+            console.log(iElement);
+            
+            console.log(iElement.find('li').length);    // 0
+            
+            $timeout(function(){
+                console.log(iElement.find('li').length);       // 4
+            },100);
+
             iElement.on('click', function(){
                 console.log('click');
-                scope.stars.push('');
+                scope.stars.push({hotel: 'new hotel'});
                 scope.$apply();
             });
+
 
             // scope.toggleStar = function(index){
             //     // console.log(index);
