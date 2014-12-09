@@ -19,7 +19,6 @@ angular.module('angularTestApp').directive('btmodal', function(){
         	}
             scope.$watch(attrs.visible, function(){
                 scope.showBModal();
-                scope.verify();
             })
 
             $(element).bind("hide.bs.modal", function () {

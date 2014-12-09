@@ -5,7 +5,19 @@ angular.module('angularTestApp')
     $scope.stars = [{hotel: 'hilton'}, {hotel: 'shearton'}, {hotel: 'holiday inn'}, {hotel: 'marriote'}];
     $scope.modalVisible = false;
     $scope.modalText = 'Enjoy the same scope';
+    $scope.userInput = 'original';
 
+    /*ngmodel controller*/
+    $scope.changeUserInput = function(){
+      $scope.userInput = 'changed';
+    }
+
+    $scope.$watch('userInput', function(newVal, oldVal){
+      console.log('parent ctrl val changed: ---->' + newVal);
+    })
+
+
+    /*rating widget*/
     $scope.addStar = function(){
         $scope.stars.push('');
         
@@ -13,6 +25,10 @@ angular.module('angularTestApp')
     $scope.removeStar = function(){
         $scope.stars.pop();     
     }
+
+
+
+
 
     /*
       Method 1: the ui.bootstrap way of show modal---> $modal service
@@ -61,8 +77,6 @@ angular.module('angularTestApp')
       $scope.modalVisible = true;
     } 
 
-    $scope.verify = function(){
-    }
     
 
     

@@ -7,8 +7,8 @@ angular.module('angularTestApp').directive('staricon', [function () {
         replace: true,
         templateUrl: './views/directives/staricon.html',
         link: function (scope, iElement, iAttrs) {
-            console.log('staricon link function: --->');
-            console.log(iElement);
+            // console.log('staricon link function: --->');
+            // console.log(iElement);
         }   
     };
 }])

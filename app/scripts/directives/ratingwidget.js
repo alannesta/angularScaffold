@@ -12,14 +12,14 @@ angular.module('angularTestApp').directive('ratingWidget', ['$timeout', function
         // template: '<staricon ng-repeat = "star in stars"><i class="fa fa-star"></i><span ng-bind = "star.hotel"></span></staricon>',
         // template: '<staricon><i class="fa fa-star"></i><span ng-bind = "stars[0].hotel"></span></staricon>',
         link: function (scope, iElement, iAttrs) {
-            console.log('ratingWidget link function: --->');
-            console.log(iElement);
+            // console.log('ratingWidget link function: --->');
+            // console.log(iElement);
             
-            console.log(iElement.find('li').length);    // 0
+            // console.log(iElement.find('li').length);    // 0
             
-            $timeout(function(){
-                console.log(iElement.find('li').length);    // 4
-            },100);
+            // $timeout(function(){
+            //     console.log(iElement.find('li').length);    // 4
+            // },100);
 
             iElement.on('click', function(){
                 console.log('click');
