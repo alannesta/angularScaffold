@@ -13,9 +13,8 @@ angular.module('angularTestApp')
     }
 
     $scope.$watch('userInput', function(newVal, oldVal){
-      console.log('parent ctrl val changed: ---->' + newVal);
+      // console.log('parent ctrl val changed: ---->' + newVal);
     })
-
 
     /*rating widget*/
     $scope.addStar = function(){
@@ -25,9 +24,6 @@ angular.module('angularTestApp')
     $scope.removeStar = function(){
         $scope.stars.pop();     
     }
-
-
-
 
 
     /*

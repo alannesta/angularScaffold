@@ -5,10 +5,12 @@ angular.module('angularTestApp').directive('staricon', [function () {
         restrict: 'A,E',
         transclude: true,
         replace: true,
+        require:'^ratingWidget',
         templateUrl: './views/directives/staricon.html',
-        link: function (scope, iElement, iAttrs) {
+        link: function (scope, iElement, iAttrs, $ratingCtrl) {
             // console.log('staricon link function: --->');
             // console.log(iElement);
+            $ratingCtrl.logFunc('from staricon');
         }   
     };
 }])

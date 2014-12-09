@@ -39,4 +39,4 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', 
         console.log('aboutCtrl direction changed to: ' + newVal);
         
     }) 
-}])
+}]);
