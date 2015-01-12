@@ -38,10 +38,10 @@ module.exports = function (grunt) {
           livereload: true
         }
       },
-      // jsTest: {
-      //   files: ['test/spec/{,*/}*.js'],
-      //   tasks: ['newer:jshint:test', 'karma']
-      // },
+      jsTest: {
+         files: ['test/spec/{,*/}*.js', '<%= yeoman.app %>/scripts/{,*/}*.js'],
+         tasks: ['karma']
+      },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
@@ -401,7 +401,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+    'karma:unit'
   ]);
 
   grunt.registerTask('build', [
@@ -422,7 +422,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
     'test',
     'build'
   ]);
