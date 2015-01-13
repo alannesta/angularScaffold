@@ -10,7 +10,7 @@ angular.module('angularTestApp').directive('staricon', [function () {
         link: function (scope, iElement, iAttrs, $ratingCtrl) {
             // console.log('staricon link function: --->');
             // console.log(iElement);
-            $ratingCtrl.logFunc('from staricon');
+            // $ratingCtrl.logFunc('from staricon');
         }   
     };
 }])

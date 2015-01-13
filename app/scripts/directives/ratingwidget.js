@@ -13,7 +13,7 @@ angular.module('angularTestApp').directive('ratingWidget', ['$timeout', function
         // template: '<staricon><i class="fa fa-star"></i><span ng-bind = "stars[0].hotel"></span></staricon>',
         link: function (scope, iElement, iAttrs, $ratingCtrl, transcludeFn) {
 
-            $ratingCtrl.logFunc('from rating widget');
+            // $ratingCtrl.logFunc('from rating widget');
 
             iElement.on('click', function(){
                 $ratingCtrl.toggle();
@@ -21,7 +21,7 @@ angular.module('angularTestApp').directive('ratingWidget', ['$timeout', function
             });
 
             transcludeFn(scope, function(clone){
-                console.log(angular.element(clone));
+                // console.log(angular.element(clone));
                 iElement.append(clone);
             });
             // console.log('ratingWidget link function: --->');
