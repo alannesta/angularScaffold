@@ -73,6 +73,9 @@ angular.module('angularTestApp')
       $scope.modalVisible = true;
     } 
 
+    /* Title directive */
+    // $scope.title = 'some text';
+    $scope.title = '<h4 style="color:blue">Yeehaw</h4>'
     
 
     
