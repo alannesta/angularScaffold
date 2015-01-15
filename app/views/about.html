@@ -1,10 +1,17 @@
-<h4>It works!</h4>
-<div id = 'loading' class="loading">Pull Down to Refresh</div>
+<!-- <div id = 'loading' class="slidediv">Pull Down to Refresh</div> -->
 <div popup-hint flagvalue="flag"></div>
 <p><a ng-href="#/" ng-click="navigate()">Back To Home</a></p>
 <div><a ng-href="#/contact" ng-click="navigate()">Contact</a></div>
-<button ng-click = "animate()">Click to Animate</button>
+
+
+<h1>Animation Playground</h1>
+<button ng-click = "animate()">RUN ALL</button>
+<button ng-click = "velocityFlyin()">Velocity</button>
+<button ng-click = "angularAnimate()">$animate</button>
+
 <button ng-click = "pullDown()">Pull Down To Refresh</button>
-<div class='slide-bar' ng-if="animateToggle">This is the animation block</div>
+<div class='slide-bar' ng-if="animateToggle">CSS animation</div>
+<div class= 'velocityFlyin'>Velocity animation</div>
+
 <!-- <div>{{flag}}</div> -->
 

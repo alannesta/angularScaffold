@@ -128,8 +128,12 @@ nav li{
 
 /*slide animation*/
 .slide-bar{
-    position: absolute;
-    transition: linear 1s;
+    position: relative;
+    color: white;
+    width: 100px;
+    left: 0%;
+    background-color: blue;
+    transition: left ease-in-out  1.5s;
 }
 
 .slide-bar.ng-enter{
@@ -147,6 +151,23 @@ nav li{
 .slide-bar.ng-leave-active{
     opacity: 1;
     left: -100%;
+}
+
+.velocityFlyin {
+    position: relative;
+    color: white;
+    width: 100px;
+    left: -100%;
+    opacity: 0;
+    background-color: green;   
+}
+
+.flyinout{
+    position: relative;
+    color: white;
+    width: 100px;
+    /*left: -100%;*/
+    background-color: black; 
 }
 
 /*loading animation*/
@@ -169,6 +190,13 @@ nav li{
     position:relative;
     opacity: 1;
     -webkit-transform: rotateX(0deg);
+}
+
+.slidediv{
+    height:300px;
+    position: absolute;
+    background-color: green;
+    text-align: center;
 }
 
 
