@@ -1,4 +1,4 @@
-angular.module('angularTestApp').directive('title', ['$sanitize', function($sanitize){
+angular.module('angularTestApp').directive('testtitle', ['$sanitize', function($sanitize){
     return {
     	restrict: 'A',
     	compile: function(tElements, tAttrs){
