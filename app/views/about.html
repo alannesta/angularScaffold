@@ -2,7 +2,7 @@
 <div popup-hint flagvalue="flag"></div>
 <p><a ng-href="#/" ng-click="navigate()">Back To Home</a></p>
 <div><a ng-href="#/contact" ng-click="navigate()">Contact</a></div>
-
+<div ng-class="{fadeinout: toggleFade}">FADEINOUT</div>
 
 <h1>Animation Playground</h1>
 <button ng-click = "animate()">RUN ALL</button>
@@ -12,6 +12,11 @@
 <button ng-click = "pullDown()">Pull Down To Refresh</button>
 <div class='slide-bar' ng-if="animateToggle">CSS animation</div>
 <div class= 'velocityFlyin'>Velocity animation</div>
+
+<div>
+  <button ng-click = "toggleFade = !toggleFade">toggle fade</button>
+
+</div>
 
 <!-- <div>{{flag}}</div> -->
 

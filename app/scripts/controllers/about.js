@@ -2,7 +2,8 @@
 
 angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', '$rootScope', '$animate', function($interval, $scope, $rootScope, $animate){
     $scope.flag = 0;
-    $scope.animateToggle = false; 
+    $scope.animateToggle = false;
+    $scope.toggleFade = false;
     var ele = $('<div class="flyinout">Angular Animation</div>');
 
     $scope.animate = function(){
@@ -28,6 +29,8 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', 
         }else{
             $animate.enter(ele, document.body, $('.velocityFlyin'));
         }
+      $scope.animateToggle = !$scope.animateToggle;
+
         // $scope.animateToggle = !$scope.animateToggle;
     }
 
@@ -42,7 +45,7 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', 
     $scope.pullDown = function(){
         // $('#loading').removeClass('hidden');
         // $('#loading').addClass('show');
-        
+
         if ($scope.animateToggle){
             $('#loading').velocity('stop');
             $('#loading')
@@ -51,7 +54,7 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', 
             $('#loading').velocity('stop');
             $('#loading').velocity({height: 0}, { duration: 500});
         }
-        
+
         $scope.animateToggle = !$scope.animateToggle
     }
     // no need to call manually
@@ -59,7 +62,7 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', 
 	// 	toggle($scope.flag);
 	// 	//console.log($scope.flag);
 	// },2000);
-    
+
 
     //need to call scope.$apply manually to update DOM
     // setInterval(function(){
@@ -76,6 +79,6 @@ angular.module('angularTestApp').controller('aboutCtrl', ['$interval','$scope', 
         //$interval.cancel(timer);
     })
     $scope.$watch('direction', function(newVal, oldVal){
-        
-    }) 
+
+    })
 }]);

@@ -159,16 +159,37 @@ nav li{
     width: 100px;
     left: -100%;
     opacity: 0;
-    background-color: green;   
+    background-color: green;
 }
 
 .flyinout{
     position: relative;
     color: white;
     width: 100px;
-    /*left: -100%;*/
-    background-color: black; 
+    background-color: black;
+    transition: width ease-in-out  1.5s;
+//    transition: opacity ease-in-out  1.5s;
+    transition: left ease-in-out  1.5s;
 }
+
+.flyinout.ng-enter{
+  left: 100px;
+//  opacity: 0;
+}
+.flyinout.ng-enter-active{
+  left: 300px;
+//  opacity: 1;
+}
+.flyinout.ng-leave{
+  left: 300px;
+//  opacity: 1;
+}
+.flyinout.ng-leave-active{
+  left: 100px;
+//  opacity: 0;
+}
+
+
 
 /*loading animation*/
 .loading{
@@ -206,7 +227,7 @@ nav li{
 .slide-right.ng-enter,
 .slide-right.ng-leave {
     position: absolute;
-    right: 0; 
+    right: 0;
     left: 0;
     background: inherit;
     -ms-transition: 1.25s ease-in-out;
@@ -288,12 +309,12 @@ nav li{
                 background-color: blue;
             }*/
         }
-        
+
     }
 }
 
 .animationpage-container{
-    
+
 }
 
 .animationblock{
@@ -313,7 +334,7 @@ nav li{
     border: 1px solid black;
     text-align: center;
     -webkit-transition: visibility 2s;
-    li{ 
+    li{
         margin:0;
         padding: 30px;
         float:none;
@@ -327,6 +348,6 @@ nav li{
 
 .button-container{
     .btn{
-        width: 80px; 
+        width: 80px;
     }
 }
