@@ -16,6 +16,11 @@ angular.module('angularTestApp')
     // }
 
     $scope.items = ['ss','aa', 'cc', 'bb', 'dd', 'gg', 'ff','ss','11', '22'];
+
+    $scope.draggable = {attr: 'draggable'};
+
+    $scope.dropzone = {};
+
     $scope.addElement = function(){
         var index = getRandomIndex();
 
@@ -26,7 +31,7 @@ angular.module('angularTestApp')
         var length = $scope.items.length;
         var index = getRandomIndex();
         $scope.items.splice(index,1);
-    }   
+    }
 
     function getRandomIndex(){
         var length = $scope.items.length;
@@ -62,8 +67,8 @@ angular.module('angularTestApp')
     //     var $window = $(window);
     //     $window.scrollTop(1000);
 
-    // },0)   
-    
+    // },0)
+
     $scope.scrollTo = function(id) {
         var old = $location.hash();
         $location.hash(id);
@@ -73,13 +78,13 @@ angular.module('angularTestApp')
     };
 
     $scope.$on('$destroy', function(){
-    })
+    });
 
     $scope.$on('$routeChangeStart', function(){
-    })
+    });
 
     $scope.$watch('direction', function(newVal, oldVal){
-    })      
+    });
 
   }]).animation('.fly-in-out', function(){
     return {
@@ -88,7 +93,7 @@ angular.module('angularTestApp')
             TweenLite.to($element, 0.5, {scale:1.5});
             TweenLite.to($element, 0.5, {scale:1, delay:0.5});
             done();
-            
+
         },
         leave: function(element, done) {
             var $element = $(element);

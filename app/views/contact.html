@@ -6,16 +6,24 @@
         <li class="nav-item"><a href="#/">Home</a></li>
         <li class="nav-item"><a href="#/">Directives</a></li>
         <li class="nav-item"><a href="#/">Promise</a></li>
-        <li class="nav-item"><a href="#/animation">Animation</a></li>    
+        <li class="nav-item"><a href="#/animation">Animation</a></li>
     </ul>
 </nav>
 
 <div class="content container-fluid">
     <div class= "row">
         <section class="main-content col-md-8">
-            Using a single set of .col-md-* grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any .row.        
+            <header>Using a single set of .col-md-* grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any .row.</header>
+
+            // ng-drag-drop
+            <div>
+              <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="draggable" jqyoui-draggable="{animate:true}">draggable</div>
+              <div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="dropzone" jqyoui-droppable style='height:50px;'>
+                <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="dropzone" jqyoui-draggable ng-hide="!dropzone.attr">{{dropzone.attr}}</div>
+              </div>
+            </div>
         </section>
-        
+
         <aside class="sub-content col-md-4">
             <section>
                 Don't want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding .col-xs-* .col-md-* to your columns. See the example below for a better idea of how it all works.
@@ -29,8 +37,8 @@
             <ul class="item-list">
                 <li ng-repeat = "item in items track by $index" id="item{{$index}}" ng-bind = "item" class="fly-in-out"></li>
             </ul>
-            
-            
+
+
         </aside>
 
     </div>
