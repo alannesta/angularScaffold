@@ -57,22 +57,24 @@
 
 <h4>Below is a set of ui-bootstrap test</h4>
 
-<h1>pop over</h1>
-<button popover-placement="top" popover="On the Top!" class="btn btn-default">
-	<p>top</p>
-	<p>
-		<span>top</span>
-	</p>
-	<span>Top</span>
-</button>
+<!--<h1>pop over</h1>-->
+<!--<button popover-placement="top" popover="On the Top!" class="btn btn-default">-->
+	<!--<p>top</p>-->
+	<!--<p>-->
+		<!--<span>top</span>-->
+	<!--</p>-->
+	<!--<span>Top</span>-->
+<!--</button>-->
 
 <!-- title attribute -->
 
 <div style="background-color: red; font-size: 20px" title="this is the title tooltip which follows the cursor">TEST</div>
 
 <!-- draggable/droppable -->
-<div draggable data-transfer="star" ng-repeat = "star in stars track by $index">{{star.hotel}}</div>
-<div droppable></div>
+<div style="height:100px"></div>
+
+<div draggable style="height:40px; width: 100px; border: solid 1px black" item = "star" ng-repeat = "star in stars track by $index">{{star.hotel}}</div>
+<div droppable style="height:100px; width: 100px; margin-top: 20px; border: solid 2px red"></div>
 
 <!-- bootstrap modal template -->
 <script type="text/ng-template" id="myModalContent.html">

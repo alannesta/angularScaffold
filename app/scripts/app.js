@@ -8,8 +8,7 @@ angular
     'ngRoute',
     'ngAnimate',
     'ui.bootstrap',
-    'proteus.uiComponents',
-    'ngDragDrop'
+    'proteus.uiComponents'
   ])
   .config(function ($routeProvider) {
     $routeProvider

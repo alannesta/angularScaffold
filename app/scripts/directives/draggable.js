@@ -5,15 +5,21 @@ angular.module('angularTestApp').directive('draggable', function() {
 
     // },
     link: function(scope, element, attrs) {
-      el = element[0];
-      el.ondragstart = function(event) {
-        event.dataTransfer.effectAllowed = "move";
+      var el = element[0];
 
-        // TODO: scope.eval(card), setData: transfer the card object
-        console.log(attr);
-        event.dataTransfer.setData("cardName", $(this).attr('cardName'));
-      }
-      el.ondragend = function(event) {
+      el.draggable = 'true';
+
+
+      el.ondragstart = function(e) {
+        e.dataTransfer.effectAllowed = "move";
+
+        // TODO: scope.eval(card), setData: transfer the card object(serialize)
+        var card = JSON.stringify(scope.$eval(attrs.item));
+        e.dataTransfer.setData("card", card);
+
+      };
+
+      el.ondragend = function() {
         console.log('dragend');
       }
     }

@@ -6,33 +6,24 @@ angular.module('angularTestApp').directive('droppable', function() {
       itemList: '='
     },
     link: function(scope, element, attrs) {
-      el = element[0];
+      var el = element[0];
 
-      el.addEventListener('dragenter', function() {
-        this.classList.add('over');
-        return false;
+      el.addEventListener('dragenter', function(e) {
+        console.log('dragenter');
       }, false);
 
-      el.addEventListener('dragleave', function() {
-        this.classList.remove('over');
-        return false;
+      el.addEventListener('dragleave', function(e) {
+        console.log('dragleave');
       }, false);
 
-      el.on("drop", function(e) {
-        if (e.preventDefault) {
-          e.preventDefault(); // Necessary. Allows us to drop.
-        }
+      el.addEventListener('dragover', function(e) {
+        e.preventDefault();   // this will allow the item to "drop"
+      }, false);
 
-        if (e.stopPropogation) {
-          e.stopPropogation(); // Necessary. Allows us to drop.
-        }
-
-        var data = e.dataTransfer.getData("cardName");
-        console.log(data);
-        selectedCards
-        scope.onDrop({dragEl: src, dropEl: dest});
+      el.addEventListener('drop', function(e) {
+        var data = e.dataTransfer.getData("card");
+        console.log(JSON.parse(data));
       });
-
     }
   }
 })
