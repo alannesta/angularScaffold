@@ -19,12 +19,15 @@ angular.module('angularTestApp')
     /*rating widget*/
     $scope.addStar = function(){
         $scope.stars.push('');
-        
+
     }
     $scope.removeStar = function(){
-        $scope.stars.pop();     
+        $scope.stars.pop();
     }
 
+    $scope.$watch('stars', function(){
+      console.log($scope.stars);
+    }, true);
 
     /*
       Method 1: the ui.bootstrap way of show modal---> $modal service
@@ -39,7 +42,7 @@ angular.module('angularTestApp')
         })
 
         // console.log(modalInstance);
-        /*  
+        /*
             the modalInstance.result is a promise. add handler to promise.
             source:
 
@@ -53,7 +56,7 @@ angular.module('angularTestApp')
                 $modalStack.dismiss(modalInstance, reason);
               }
             };
-            
+
         */
 
         modalInstance.result.then(function(result){
@@ -71,12 +74,12 @@ angular.module('angularTestApp')
     $scope.bootstrapModal = function(){
       // $("#modal-container").modal();
       $scope.modalVisible = true;
-    } 
+    }
 
     /* Title directive */
     // $scope.title = 'some text';
     $scope.title = '<h4 style="color:blue">Yeehaw</h4>'
-    
 
-    
+
+
   }]);

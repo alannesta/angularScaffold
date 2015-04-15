@@ -3,11 +3,12 @@ angular.module('angularTestApp').directive('droppable', function() {
     restrict: 'A',
     scope: {
       onDrop: '&',
-      itemList: '='
+      stars: '='
     },
-    link: function(scope, element, attrs) {
+    link: function(scope, element) {
       var el = element[0];
 
+      console.log(scope.stars);
       el.addEventListener('dragenter', function(e) {
         console.log('dragenter');
       }, false);
@@ -22,7 +23,10 @@ angular.module('angularTestApp').directive('droppable', function() {
 
       el.addEventListener('drop', function(e) {
         var data = e.dataTransfer.getData("card");
-        console.log(JSON.parse(data));
+        //console.log(JSON.parse(data));
+        scope.$apply(function(){
+          scope.stars.push(JSON.parse(data));
+        });
       });
     }
   }
