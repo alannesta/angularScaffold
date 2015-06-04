@@ -73,6 +73,7 @@
     <script src="bower_components/velocity/velocity.ui.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/react/react.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -100,6 +101,7 @@
     <script src="scripts/directives/draggable.js"></script>
     <script src="scripts/directives/droppable.js"></script>
     <script src="scripts/directives/controllers/ratingwidgetCtrl.js"></script>
+    <script src="scripts/directives/dropdown-react.js"></script>
 
     <script src="scripts/utils/animations/fly-in-out.js"></script>
     <script src="scripts/utils/animations/fade-in-out.js"></script>
@@ -108,5 +110,16 @@
 
     <!-- tweenmax animation -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script type="text/jsx">
+      var ReactTest = React.createClass({
+
+        render: funtion(){
+        return (
+          <h4>It works!</h4>
+        )
+      }
+      });
+    </script>
+
 </body>
 </html>
